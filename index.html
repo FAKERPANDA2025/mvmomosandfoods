@@ -1,82 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hosting Expired - mvmomosandfoods.com</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #673ab7, #512da8);
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
+  <meta charset="UTF-8" />
+  <title>Hosting Expired - dashdash.com</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #673ab7, #512da8);
+      color: white;
+      text-align: center;
+      padding: 50px;
+      transition: background 0.5s ease;
+    }
 
-        .container {
-            background-color: white;
-            color: #333;
-            max-width: 600px;
-            margin: auto;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
+    .container {
+      background-color: white;
+      color: #333;
+      max-width: 600px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
 
-        h1 {
-            color: #673ab7;
-            font-size: 28px;
-        }
+    .active {
+      display: block;
+    }
 
-        p {
-            font-size: 18px;
-            margin-top: 20px;
-            line-height: 1.6;
-        }
+    h1 {
+      color: #673ab7;
+      font-size: 28px;
+    }
 
-        .cta-button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
-            background-color: #673ab7;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
+    p {
+      font-size: 18px;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
 
-        .cta-button:hover {
-            background-color: #512da8;
-        }
+    .cta-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #673ab7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        .footer {
-            margin-top: 40px;
-            font-size: 14px;
-            color: #aaa;
-        }
-    </style>
+    .cta-button:hover {
+      background-color: #512da8;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* GitHub style */
+    .github-login {
+      background-color: #161b22;
+      border-radius: 6px;
+      padding: 30px;
+      color: #c9d1d9;
+    }
+
+    .github-login h2 {
+      margin-bottom: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+      font-size: 16px;
+      background-color: #0d1117;
+      color: #c9d1d9;
+    }
+
+    .login-btn {
+      background-color: #238636;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .login-btn:hover {
+      background-color: #2ea043;
+    }
+
+    .error {
+      color: #ff4d4d;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .gh-footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #8b949e;
+    }
+
+    /* Ambient light effect */
+    .ambient-glow {
+      box-shadow: 0 0 30px rgba(36, 160, 237, 0.5), 0 0 60px rgba(36, 160, 237, 0.3);
+      transition: box-shadow 0.6s ease-in-out;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hosting Period Expired</h1>
-        <p>
-            The free hosting period for <strong>mvmomosandfoods.com</strong> has ended.
-        </p>
-        <p>
-            If you are the administrator, please renew your hosting plan to keep your site online.
-        </p>
-        <p>
-            💳 Annual hosting fee: <strong>$25 for 3 years</strong>
-        </p>
-        <!-- <a href="https://www.hostinger.com/" class="cta-button">Renew Now</a> -->
+  <!-- Hostinger-style container -->
+  <div class="container active" id="hostinger-page">
+    <h1>Hosting Period Expired</h1>
+    <p>The free hosting period for <strong>mvmomosandfoods.com</strong> has ended.</p>
+    <p>If you are the administrator, please renew your hosting plan to keep your site online.</p>
+    <p>💳 Annual hosting fee: <strong>$25 for 3 years</strong></p>
+    <button class="cta-button" onclick="nextPage()">Proceed to Payment</button>
+    <div class="footer">- Hostinger.com</div>
+  </div>
 
-        <div class="footer">
-            - Hostinger.com
-        </div>
-    </div>
+  <!-- GitHub-style login and payment -->
+  <div class="container github-login" id="github-page">
+    <h2>Login with GitHub</h2>
+    <p>Please login to GitHub to renew hosting for <strong>anuj7iwari@gmail.com</strong>.</p>
+    <input type="email" value="anuj7iwari@gmail.com" readonly>
+    <input type="password" placeholder="GitHub Password" id="password">
+    <button class="login-btn" onclick="validatePassword()">Login & Pay $25</button>
+    <div class="error" id="error-msg">❌ Wrong password. Try again.</div>
+    <div class="gh-footer">GitHub Inc. © 2025</div>
+  </div>
 
+  <script>
+    function nextPage() {
+      document.getElementById('hostinger-page').classList.remove('active');
+      document.getElementById('github-page').classList.add('active');
+
+      // Change background to GitHub dark theme
+      document.body.style.background = '#0d1117';
+
+      // Add ambient glow
+      document.getElementById('github-page').classList.add('ambient-glow');
+    }
+
+    function validatePassword() {
+      const password = document.getElementById('password').value;
+      const errorMsg = document.getElementById('error-msg');
+
+      // Simulated correct password (change it if needed)
+      const correctPassword = "github@2025";
+
+      if (password === correctPassword) {
+        errorMsg.style.display = "none";
+        alert("✅ Payment successful. Hosting renewed!");
+      } else {
+        errorMsg.style.display = "block";
+      }
+    }
+  </script>
 </body>
 </html>
